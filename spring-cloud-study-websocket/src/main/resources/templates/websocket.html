@@ -32,6 +32,7 @@
             socket.onmessage = function(msg) {
                 console.log(msg.data);
                 //发现消息进入    开始处理前端触发逻辑
+                $("#contentText2").val(msg.data);
             };
             //关闭事件
             socket.onclose = function() {
@@ -54,11 +55,13 @@
     }
 </script>
 <body>
-<p>【userId】：<div><input id="userId" name="userId" type="text" value="10"></div>
-<p>【toUserId】：<div><input id="toUserId" name="toUserId" type="text" value="20"></div>
-<p>【toUserId】：<div><input id="contentText" name="contentText" type="text" value="hello websocket"></div>
-<p>【操作】：<div><a onclick="openSocket()">开启socket</a></div>
-<p>【操作】：<div><a onclick="sendMessage()">发送消息</a></div>
+<p>【userId】：<input id="userId" name="userId" type="text" value="10">
+<p>【toUserId】：<input id="toUserId" name="toUserId" type="text" value="20">
+<p>【contentText】：<input id="contentText" name="contentText" type="text" value="hello websocket">
+<p>【操作】：<button><a onclick="openSocket()">开启socket</a></button>
+<p>【操作】：<button><a onclick="sendMessage()">发送消息</a></button>
+<hr/>
+<p>【服务端返回数据】：<input id="contentText2" name="contentText2" type="text" value="">
 </body>
 
 </html>
